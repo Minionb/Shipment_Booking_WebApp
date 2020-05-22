@@ -42,7 +42,7 @@ export default class CreateBookingForm extends Component {
     console.log(event.target.value);
   }
   onSubmit() {
-    const CREATE_BOOKING_URL = "http://localhost:8080/bookings";
+    const CREATE_BOOKING_URL = "http://34.106.36.224:9300/bookings";
     const createBookingRequest = {
       customerId: this.state.customerId,
       bookingRegion: this.state.bookingRegion,
