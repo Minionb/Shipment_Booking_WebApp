@@ -52,7 +52,7 @@ export default class UpdateBookingForm extends Component {
   }
   onSubmit() {
     const UPDATE_BOOKING_URL =
-      "http://34.105.183.180:9300/bookings/" + this.state.bookingId;
+      "http://localhost:8080/bookings/" + this.state.bookingId;
     const updateBookingRequest = {
       customerId: this.state.customerId,
       bookingRegion: this.state.bookingRegion,
