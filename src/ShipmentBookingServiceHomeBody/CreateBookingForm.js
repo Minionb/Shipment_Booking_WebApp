@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
 import { Form, Input, Button, Radio, message } from "antd";
 import axios from "axios";
+import { BACKEND_HOST_URL, BOOKING_INFO_PATH } from "../Constants/Constants";
 
 const layout = {
   labelCol: { span: 8 },
@@ -42,7 +42,7 @@ export default class CreateBookingForm extends Component {
     console.log(event.target.value);
   }
   onSubmit() {
-    const CREATE_BOOKING_URL = "http://localhost:8080/bookings";
+    const CREATE_BOOKING_URL = BACKEND_HOST_URL + BOOKING_INFO_PATH;
     const createBookingRequest = {
       customerId: this.state.customerId,
       bookingRegion: this.state.bookingRegion,

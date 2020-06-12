@@ -35,7 +35,7 @@ export default class ShippingBookingServiceHomeContainer extends Component {
               </Col>
               <Col span={8} offset={8}>
                 <div
-                  style={{ position: "absolute", left: "50%", top: "11.5%" }}
+                  style={{ position: "absolute", left: "50%", top: "12%" }}
                 >
                   Get Booking Details
                   <br />

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Radio } from "antd";
 import axios from "axios";
+import { BACKEND_HOST_URL, BOOKING_INFO_PATH } from "../Constants/Constants";
 
 export default class GetBookingForm extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ export default class GetBookingForm extends Component {
     this.onBookingIdChange = this.onBookingIdChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.bookingDetails = this.bookingDetails.bind(this);
+    this.onRegionChange = this.onRegionChange.bind(this);
 
     this.state = {
       bookingId: "",
@@ -17,6 +19,7 @@ export default class GetBookingForm extends Component {
       cargoNature: "",
       status: "",
       chosenBookingId: "",
+      chosenBookingRegion: "",
     };
   }
 
@@ -25,9 +28,17 @@ export default class GetBookingForm extends Component {
     console.log(event.target.value);
   }
 
+  onRegionChange(event) {
+    this.setState({ bookingRegion: event.target.value });
+    console.log(event.target.value);
+  }
   onSubmit() {
     const GET_BOOKING_URL =
-      "http://localhost:8080/bookings/" + this.state.bookingId;
+      BACKEND_HOST_URL +
+      BOOKING_INFO_PATH +
+      this.state.bookingId +
+      "/" +
+      this.state.bookingRegion;
 
     axios.get(GET_BOOKING_URL).then((response) => {
       console.log(response.data);
@@ -40,7 +51,7 @@ export default class GetBookingForm extends Component {
     this.setState({
       chosenBookingId: bookingDetails.id,
       customerId: bookingDetails.customerId,
-      bookingRegion: bookingDetails.bookingRegion,
+      chosenBookingRegion: bookingDetails.bookingRegion,
       cargoNature: bookingDetails.cargoNature,
       status: bookingDetails.status,
     });
@@ -60,6 +71,16 @@ export default class GetBookingForm extends Component {
           />
         </Form.Item>
         <br />
+        Booking Region
+        <Radio.Group
+            value={this.state.bookingRegion}
+            onChange={this.onRegionChange}
+          >
+            <Radio.Button value="APT">APT</Radio.Button>
+            <Radio.Button value="EUT">EUT</Radio.Button>
+            <Radio.Button value="NAT">NAT</Radio.Button>
+          </Radio.Group>
+        <br />
         <Form.Item>
           <Button type="primary" htmlType="submit" onClick={this.onSubmit}>
             Submit
@@ -77,14 +98,15 @@ export default class GetBookingForm extends Component {
         Customer ID: {this.state.customerId}
         <br />
         <br />
-        Booking Region: {this.state.bookingRegion}
+        Booking Region: {this.state.chosenBookingRegion}
         <br />
         <br />
         Cargo Nature: {this.state.cargoNature}
         <br />
         <br />
         Booking Status: {this.state.status}
-        <br/><br/>
+        <br />
+        <br />
         *************************************************************************************
       </div>
     );
