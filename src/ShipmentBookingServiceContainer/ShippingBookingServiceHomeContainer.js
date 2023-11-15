@@ -16,7 +16,7 @@ export default class ShippingBookingServiceHomeContainer extends Component {
               <Col className="gutter-row" span={15}>
                 <div className="Title">
                   <br />
-                  IRIS-4 Shipment Booking Service
+                  Shipment Booking Service
                 </div>
               </Col>
             </Row>
@@ -27,15 +27,15 @@ export default class ShippingBookingServiceHomeContainer extends Component {
               <Col span={8}>
                 Create Booking Form
                 <br />
-                *************************************************************************************
+                **********************************************************************************
                 <br />
                 <CreateBookingForm />
                 <br />
-                *************************************************************************************
+                **********************************************************************************
               </Col>
               <Col span={8} offset={8}>
                 <div
-                  style={{ position: "absolute", left: "50%", top: "12%" }}
+                  style={{ position: "absolute", left: "50%", top: "16%" }}
                 >
                   Get Booking Details
                   <br />
@@ -53,10 +53,10 @@ export default class ShippingBookingServiceHomeContainer extends Component {
                 <Col span={20}>
                   Update Booking Form
                   <br />
-                  *************************************************************************************
+                  **********************************************************************************
                   <br />
                   <UpdateBookingForm />
-                  *************************************************************************************
+                  **********************************************************************************
                   <br />
                 </Col>
               </Row>

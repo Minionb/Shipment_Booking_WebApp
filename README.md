@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Shipment Booking Web App
+
+## Layout:
+
+![Image Description](./BookingApp.png)
 
 ## Available Scripts
 
